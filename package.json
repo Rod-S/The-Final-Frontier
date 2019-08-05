@@ -1,0 +1,11 @@
+{
+  "name": "capstone_the-final-frontier",
+  "version": "1.0.0",
+  "description": "Creating front-end of JavaScript web app along with back-end managing database communication and 3 APIs. Application hosted with heroku.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rod-S",
+  "license": "ISC"
+}
