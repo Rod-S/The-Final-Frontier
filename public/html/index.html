@@ -8,7 +8,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel='stylesheet' href='custom.css'>
+    <link rel='stylesheet' href='../../custom.css'>
+
   </head>
   <body id="home" data-spy="scroll" data-target=".navbar" data-offset='100'>
 
@@ -22,8 +23,8 @@
           <div class="navbar-nav text-sm-center mx-auto justify-content-sm-between">
             <a class="nav-item nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#about">About</a>
-            <a class="nav-item nav-link" href="#potd">Picture of the Day Archive</a>
-            <a class="nav-item nav-link" href="#articles">Articles archive</a>
+            <a class="nav-item nav-link" href="#potd">Picture Archive</a>
+            <a class="nav-item nav-link" href="#articles">Articles Archive</a>
           </div>
         </div>
       </nav>
@@ -44,10 +45,12 @@
         <div class="row justify-content-md-center">
           <div class="col-sm-12">
             <div class="card mb-3 bg-dark text-white">
-              <img src="..." class="card-img-top" alt="...">
+            <h3 class='my-4 text-center'>NASA Picture of the Day</h3>
+              <img id='apod_img_id' src="reqObject" class="card-img-top" alt="...">
+              <p id="copyright"></p>
               <div class="card-body">
-                <h5 class="card-title">NASA Picture of the Day</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h4 class="card-title" id='apod_title'></h4>
+                <p id='apod_explaination' class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
               </div>
             </div>
@@ -58,8 +61,10 @@
 
 
     <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src='../../js/APICalls.js'></script>
+    <script src='./routes/index.js'></script>
   </body>
 </html>
