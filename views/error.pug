@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    br
+    br
+    br
+    br
+    .container.bg-dark.text-white
+      h1 Uh Oh! There was a problem loading the page!
+      br
+      a(href='/') CLICK HERE TO GO BACK
+      br
+      br
+      h3= `${error.message} - Status: ${error.status}`
+      br
+      .lead.text-light
+        pre.stack-trace= error.stack

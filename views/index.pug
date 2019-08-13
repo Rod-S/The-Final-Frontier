@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  // Jumbotron
+  .jumbotron.jumbotron-fluid.bg-dark.text-white
+    .container.text-sm-center.pt-5
+      h1.display-2 The Final Frontier
+      p.lead A website dedicated to the latest images and news articles from NASA
+  // /Jumbotron
+  // PotD
+  .container
+    .row
+      .col-lg-4.col-md-6
+        .card.mb-3.bg-dark.text-white
+          h3.my-4.text-center NASA Picture of the Day
+          img#apod_img_id.card-img-top(src='reqObject' alt='...')
+          p#copyright
+          .card-body
+            h4#apod_title.card-title
+            p#apod_explaination.card-text
+              | picture of the day description
+            p.card-text
+              small.text-muted Last updated 3 mins ago           
+    .row    
+        .col-lg-4.col-md-6
+          .card.mb-3.bg-dark.text-white
+            h3.my-4.text-center NASA Picture of the Day
+            img#apod_img_id.card-img-top(src='reqObject' alt='...')
+            p#copyright
+            .card-body
+              h4#apod_title.card-title
+              p#apod_explaination.card-text
+                | picture of the day description
+              p.card-text
+                small.text-muted Last updated 3 mins ago 
+    .row
+          .col-lg-4.col-md-6
+            .card.mb-3.bg-dark.text-white
+              h3.my-4.text-center NASA Picture of the Day
+              img#apod_img_id.card-img-top(src='reqObject' alt='...')
+              p#copyright
+              .card-body
+                h4#apod_title.card-title
+                p#apod_explaination.card-text
+                  | picture of the day description
+                p.card-text
+                  small.text-muted Last updated 3 mins ago 

@@ -6,11 +6,11 @@ const app = express();
 app.use('/static', express.static('public'));
 
 //set view engine to read pug files in view folder
-app.set('view engine', 'html');
+app.set('view engine', 'pug');
 
 //route to home webpage, rendering index.pug
 app.get('/', (req, res) => {
-  res.render('index.html');
+  res.render('index');
 });
 
 //route to about page, rendering about.pug
@@ -18,7 +18,6 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
-app.get('/')
 
 //setup error middleware, passing in new error object
 app.use((req, res, next) => {
@@ -32,12 +31,15 @@ app.use((req, res, next) => {
 app.use(( err, req, res, next ) => {
   res.locals.error = err;
   //display specific error statuses depending on code®
-  if (err.status >= 100 && err.status < 600)
+  if (err.status >= 100 && err.status < 600) {
     res.status(err.status);
-  else
+  }
+  else {
     res.status(500);
-  console.log('There was an error while loading the page');
-  res.render('error');
+    console.log('There was an error while loading the page');
+    console.log(err.status);
+    res.render('error');
+  }
 });
 
 //start server on localhost port 3000
