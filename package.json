@@ -4,16 +4,20 @@
   "description": "Creating front-end of JavaScript web app along with back-end managing database communication and 3 APIs. Application hosted with heroku.",
   "main": "app.js",
   "scripts": {
-    "start": "node routes/index.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rod-S",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "connect-mongo": "^3.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.16.2",
     "http-errors": "^1.7.3",
     "method-override": "^3.0.0",
+    "mongoose": "^5.6.9",
+    "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.9.1",
     "pug": "^2.0.4"
   }
