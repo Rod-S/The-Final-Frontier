@@ -1,11 +1,16 @@
 //require necessary dependencies
 const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const createError = require('http-errors');
+
 const app = express();
 
 //setup static route to serve static files in public folder
 app.use('/static', express.static('public'));
 
-//set view engine to read pug files in view folder
+// view engine setup
 app.set('view engine', 'pug');
 
 //route to home webpage, rendering index.pug
@@ -18,28 +23,43 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
-
-//setup error middleware, passing in new error object
-app.use((req, res, next) => {
-  const err = new Error('Not Found');
-  err.status = 404;
-  res.locals = data.projects;
-  next(err);
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
 });
 
-//render status error page rendering error.pug
-app.use(( err, req, res, next ) => {
-  res.locals.error = err;
-  //display specific error statuses depending on code®
-  if (err.status >= 100 && err.status < 600) {
-    res.status(err.status);
-  }
-  else {
-    res.status(500);
-    console.log('There was an error while loading the page');
-    console.log(err.status);
-    res.render('error');
-  }
+// error handlers
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
 });
 
 //start server on localhost port 3000

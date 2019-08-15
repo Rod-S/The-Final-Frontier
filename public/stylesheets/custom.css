@@ -5,3 +5,7 @@
 body {
   background-color: black
 }
+
+#mapid {
+  height: 600px
+}

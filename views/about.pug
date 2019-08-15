@@ -6,13 +6,17 @@ block content
   #about.row.justify-content-md-center
     .col-sm-6.order-lg-2
       .card.mb-3.bg-dark.text-white
-        h3.mb-4.my-4.text-center About The Final Frontier
+        h1.mb-4.mt-5.text-center About The Final Frontier
         img.mb-4.img-fluid.rounded.d-none.d-sm-block(src='../../static/img/About_ISS.jpg' alt='ISS_Eastern_Seaboard')
-        p
+        h2.mx-4.text-center.text-bold
           | The Final Frontier allows you to see 3 APIs in action.
-        p
-          | The first is NASA's Picture of the Day (PotD). View the top-rated picture submitted daily to the space agency. You're guaranteed to be awe-struck!
-        p 
-          | The second is
-        p
-          | The third displays a map with the position on Earth which the International Space Station (ISS) is directly above! How neat!
+        br
+        p.mx-4
+          | The first uses NASA's Picture of the Day (PotD) API. View the top-rated picture submitted daily to the space agency. You're guaranteed to be awe-struck!
+        p.mx-4
+          | The second is an interactive world map you can zoom and scroll through, powered by Mapbox and Leaflet map APIs.
+        p.mx-4
+          | The third provides the coordinates on Earth which the International Space Station (ISS) is directly above using the open-notify ISS Current Location API.
+        br
+        p.mx-4
+          | The second and third APIs interact with each other to give you a nice visual representation of where you can see the ISS flying over Earth. How neat!
