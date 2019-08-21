@@ -9,3 +9,7 @@ body {
 #mapid {
   height: 600px
 }
+
+.bg-black {
+  background-color: black
+}

@@ -30,3 +30,28 @@ block content
             h4.card-title
             p.card-text.text-center
               | The ISS orbits Earth once every 92 minutes. That's approximately 5 miles per second!
+              // Modal
+              #register.modal.fade(tabindex='-1' role='dialog' aria-labelledby='register form' aria-hidden='true')
+                .modal-dialog(role='document')
+                  .modal-content.bg-dark
+                    .modal-header.bg-secondary.text-white
+                      h5#exampleModalLabel.modal-title Contact Info
+                      button.close(type='button' data-dismiss='modal' aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    .modal-body.bg-dark
+                      // registration Form
+                      form(action="/", method="post")
+                        .alert.alert-secondary.alert-dismissible.fade.show(role='alert')
+                          strong Register your email to see the Astronomy Picture of the Day directly from your inbox! 
+                          button.close(type='button' data-dismiss='alert' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                        h5.mb-4 Basic Info
+                        .form-group
+                          label.form-control-label(for='fullName') Name:
+                          input#name.form-control(type='text' name="fullName" placeholder='Name' required='')
+                        .form-group
+                          label.form-control-label(for='emailAddress') Email:
+                          input#email.form-control(type='text' name="emailAddress" placeholder='Email' pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' required='')
+                        hr.mb-4
+                        button.btn.btn-primary(type='submit') Sign me up!
+                      // /registration Form

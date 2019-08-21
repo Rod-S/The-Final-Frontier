@@ -17,7 +17,7 @@ app.use('/static', express.static('public'));
 app.set('view engine', 'pug');
 
 // mongodb connection
-mongoose.connect("mongodb://localhost:27017/course-api");
+mongoose.connect("mongodb://localhost:27017/apod");
 var db = mongoose.connection;
 // display message if mongodb connection error
 db.on('error', console.error.bind(console, 'connection error'));
@@ -33,11 +33,13 @@ app.use(morgan('dev'));
 app.use(jsonParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-module.exports = app.use('/', routes);
+app.use('/', routes);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use((req, res, next) => {
+  res.status(404).json({
+    message: 'Route Not Found'
+  });
 });
 
 // error handler
@@ -78,3 +80,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Our app is running on port ${ PORT }`);
 });
+
+module.exports = app;
