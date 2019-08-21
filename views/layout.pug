@@ -1,31 +1,27 @@
-head
-  title Full Stack Conf
-  // Required meta tags
-  meta(charset='utf-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-  // Bootstrap CSS
-  link(rel='icon' href='../static/img/favicon.png')
-  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
-  link(rel='stylesheet' href='../static/stylesheets/custom.css')
-  link(rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="")
-  script(src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin="")
-// navbar
-.container
-  nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary.fixed-top
-    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
-      span.navbar-toggler-icon
-    #navbarNavAltMarkup.collapse.navbar-collapse
-      .navbar-nav.text-sm-center.mx-auto.justify-content-sm-between
-        a.nav-item.nav-link(href='../')
-          | Home 
-          span.sr-only (current)
-        a.nav-item.nav-link(href='../about') About
-        a.nav-item.nav-link(type='button' data-toggle='modal' data-target='#register') Email List
-
-// /navbar
-block content
-script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
-script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
-script(src='../static/scripts/APICalls.js')
-script(src='./routes/index.js')
+doctype html
+html
+  head
+    title The Final Frontier
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // Bootstrap CSS
+    link(rel='icon' href='../static/img/favicon.png')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+    link(rel='stylesheet' href='../static/stylesheets/custom.css')
+    link(rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="")
+    script(src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin="")
+  // navbar
+  .container
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary.fixed-top
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNavAltMarkup.collapse.navbar-collapse
+        .navbar-nav.text-sm-center.mx-auto.justify-content-sm-between
+          a.nav-item.nav-link(href='../')
+            | Home 
+            span.sr-only (current)
+          a.nav-item.nav-link(href='../about') About
+          a.nav-item.nav-link(href='' data-toggle='modal' data-target='#register') Email List
+  // /navbar
+  block content

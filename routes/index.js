@@ -19,4 +19,9 @@ router.post('/', (req, res, next) => {
   res.redirect('/');
 });
 
+router.post('/about', (req, res, next) => {
+  User.create(req.body);
+  res.redirect('/about');
+});
+
 module.exports = router;

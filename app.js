@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const jsonParser = require('body-parser').json;
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-const routes = require('./routes/index');
+const routes = require('./routes/index.js');
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use('/static', express.static('public'));
 app.set('view engine', 'pug');
 
 // mongodb connection
-mongoose.connect("mongodb://localhost:27017/apod");
+mongoose.connect("mongodb://localhost:27017/tff");
 var db = mongoose.connection;
 // display message if mongodb connection error
 db.on('error', console.error.bind(console, 'connection error'));
@@ -37,9 +37,9 @@ app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  res.status(404).json({
-    message: 'Route Not Found'
-  });
+  res.status(404);
+	res.render('error');
+
 });
 
 // error handler

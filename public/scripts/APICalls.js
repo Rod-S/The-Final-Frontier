@@ -2,8 +2,8 @@
 
 $(document).ready(function ($) {
 
-  let lat;
-  let long;
+  let lat='';
+  let long='';
 
   //disable form submissions if there are invalid fields
   (function() {
