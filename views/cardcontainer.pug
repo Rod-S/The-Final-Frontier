@@ -1,0 +1,23 @@
+// PotD
+.container
+  .row
+    .col-md-6
+      .card.mb-3.bg-dark.text-white
+        h3.my-4.text-center NASA Picture of the Day
+        img#apod_img_id.card-img-top
+        p.pl-2#copyright
+        .card-body
+          h4#apod_title.card-title
+          p#apod_explaination.card-text
+            | LOADING...
+          p.card-text        
+    .col-md-6
+      .card.mb-3.bg-dark.text-white
+        h3.my-4.text-center Look up, it's the International Space Station!
+        #mapid 
+          p
+            | LOADING...
+        .card-body
+          h4.card-title
+          p.card-text.text-center
+            | The ISS orbits Earth once every 92 minutes. That's approximately 5 miles per second!
