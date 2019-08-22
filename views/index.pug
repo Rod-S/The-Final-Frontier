@@ -40,18 +40,24 @@ block content
                         span(aria-hidden='true') &times;
                     .modal-body.bg-dark
                       // registration Form
-                      form(action="/", method="post")
+                      form.needs-validation(action="/", method="post")
                         .alert.alert-secondary.alert-dismissible.fade.show(role='alert')
                           strong Register your email to see the Astronomy Picture of the Day directly from your inbox! 
                           button.close(type='button' data-dismiss='alert' aria-label='Close')
                             span(aria-hidden='true') &times;
                         h5.mb-4 Basic Info
                         .form-group
-                          label.form-control-label(for='fullName') Name:
-                          input#name.form-control(type='text' name="fullName" placeholder='Name' required='')
+                          label.form-check-label(for='fullName') Name:
+                          input#name.form-check(type='text' name="fullName" placeholder='Name' required='')
+                          .valid-feedback
+                            | Looks Good!
+                          .invalid-feedback
+                            | Please enter a name.  
                         .form-group
-                          label.form-control-label(for='emailAddress') Email:
-                          input#email.form-control(type='text' name="emailAddress" placeholder='Email' pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' required='')
+                          label.form-check-label(for='emailAddress') Email:
+                          input#email.form-check(type='text' name="emailAddress" placeholder='Email' pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' required='')
+                          .invalid-feedback
+                            | Please input a valid email ID
                         hr.mb-4
                         button.btn.btn-primary(type='submit') Sign me up!
                       // /registration Form
@@ -59,4 +65,3 @@ block content
   script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
   script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
   script(src='../static/scripts/APICalls.js')
-  script(src='./routes/index.js')

@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const jsonParser = require('body-parser').json;
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-const routes = require('./routes/index.js');
+
+const User = require('./models/models').User;
 
 const app = express();
 
@@ -33,7 +34,27 @@ app.use(morgan('dev'));
 app.use(jsonParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/', routes);
+// GET home page.
+app.get('/', (req, res, next) => {
+  res.render('index');
+});
+
+//route to about page
+app.get('/about', (req, res, next) => {
+  res.render('about');
+});
+
+//post email list modal form from home page
+app.post('/', (req, res, next) => {
+  User.create(req.body);
+  res.redirect('/');
+});
+
+//post email list modal form from about page
+app.post('/about', (req, res, next) => {
+  User.create(req.body);
+  res.redirect('/about');
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
