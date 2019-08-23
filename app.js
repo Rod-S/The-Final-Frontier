@@ -19,7 +19,7 @@ app.use('/static', express.static('public'));
 app.set('view engine', 'pug');
 
 // mongodb connection
-mongoose.connect(process.env.MONGODB_URI "mongodb://localhost:27017/final-frontier");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/final-frontier");
 var db = mongoose.connection;
 // display message if mongodb connection error
 db.on('error', console.error.bind(console, 'connection error'));
