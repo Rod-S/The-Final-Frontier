@@ -27,7 +27,7 @@ $(document).ready(function ($) {
   }).then(
     //open-notify ISS coordinates
     $.ajax({
-      url: 'https://api.open-notify.org/iss-now.json',
+      url: 'http://api.open-notify.org/iss-now.json',
       success: function(result) {
         lat = result.iss_position.latitude;
         long = result.iss_position.longitude;
