@@ -25,12 +25,12 @@ $(document).ready(function ($) {
       $("#apod_title").text(result.title);
     }
   }).then(
-    //open-notify ISS coordinates
+    //wheretheiss API ISS coordinates
     $.ajax({
-      url: 'http://api.open-notify.org/iss-now.json',
+      url: 'https://api.wheretheiss.at/v1/satellites/25544',
       success: function(result) {
-        lat = result.iss_position.latitude;
-        long = result.iss_position.longitude;
+        lat = result.latitude;
+        long = result.longitude;
       }
     })
   ).done(function(){
