@@ -33,6 +33,7 @@ $(document).ready(function ($) {
         long = result.longitude;
       }
     })
+    //apply coords to mapbox/leaflet APIs, add interactive map window
   ).done(function(){
     //leaflet/mapbox API map
     var mymap = L.map('mapid').setView([lat, long], 2);
