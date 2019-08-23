@@ -13,21 +13,21 @@
             strong Register your email to see the Astronomy Picture of the Day directly from your inbox! 
             button.close(type='button' data-dismiss='alert' aria-label='Close')
               span(aria-hidden='true') &times;
-          h5.mb-4 Basic Info
+          h5.mb-4.text-white Basic Info
           .form-group                          
-            label.form-control-label(for='fullName') Name:
+            label.text-white.form-control-label(for='fullName') Name:
             input#name.form-control(type='text' name="fullName" placeholder='Name' required='')
             .valid-feedback
-              | Looks Good!
+              | valid name.
             .invalid-feedback
               | Please enter a name.  
           .form-group
-            label.form-control-label(for='emailAddress') Email:
+            label.text-white.form-control-label(for='emailAddress') Email:
             input#email.form-control(type='text' name="emailAddress" placeholder='Email' pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$' required='')
             .valid-feedback  
-              | Looks Good!
+              | valid email.
             .invalid-feedback
-              | Please input a valid email ID
+              | Please input a valid email ID.
           hr.mb-4
           button.btn.btn-primary(type='submit') Sign me up!
         // /registration Form

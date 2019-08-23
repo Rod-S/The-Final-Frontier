@@ -1,39 +1,34 @@
-extends layout
-
-block content
-  include jumbotron
-  include cardcontainer
-  // Modal
-  #register.modal.fade(tabindex='-1' role='dialog' aria-labelledby='register form' aria-hidden='false')
-    .modal-dialog(role='document')
-      .modal-content.bg-dark
-        .modal-header.bg-secondary.text-white
-          h5#exampleModalLabel.modal-title Contact Info
-          button.close(type='button' data-dismiss='modal' aria-label='Close')
-            span(aria-hidden='false') &times;
-        .modal-body.bg-dark
-          // registration Form
-          form.needs-validation(action="/", method="post", novalidate='')
-            .alert.alert-secondary.alert-dismissible.fade.show(role='alert')
-              strong Register your email to see the Astronomy Picture of the Day directly from your inbox! 
-              button.close(type='button' data-dismiss='alert' aria-label='Close')
-                span(aria-hidden='false') &times;
-            h5.mb-4 Basic Info
-            .form-group                          
-              label.form-control-label(for='fullName') Name:
-              input#name.form-control(type='text' name="fullName" placeholder='Name' value=fullName required='')
-              .valid-feedback
-                | Looks Good!
-              .invalid-feedback
-                | Please enter a name.  
-            .form-group
-              label.form-control-label(for='emailAddress') Email:
-              input#email.form-control(type='text' name="emailAddress" placeholder='Email' value=emailAddress pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$' required='')
-              include errors
-              .invalid-feedback
-                | Please input a valid email ID
-            hr.mb-4
-            button.btn.btn-primary(type='submit') Sign me up!
-          // /registration Form
-    include bodyscripts
-    script(src='../static/scripts/forcemodal.js')
+// Modal
+#register.modal.fade(tabindex='-1' role='dialog' aria-labelledby='register form' aria-hidden='false')
+  .modal-dialog(role='document')
+    .modal-content.bg-dark
+      .modal-header.bg-secondary.text-white
+        h5#exampleModalLabel.modal-title Contact Info
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='false') &times;
+      .modal-body.bg-dark
+        // registration Form
+        form.needs-validation(action="/", method="post", novalidate='')
+          .alert.alert-secondary.alert-dismissible.fade.show(role='alert')
+            strong Register your email to see the Astronomy Picture of the Day directly from your inbox! 
+            button.close(type='button' data-dismiss='alert' aria-label='Close')
+              span(aria-hidden='false') &times;
+          h5.mb-4.text-white Basic Info
+          .form-group                          
+            label.text-white.form-control-label(for='fullName') Name:
+            input#name.form-control(type='text' name="fullName" placeholder='Name' value=fullName required='')
+            .valid-feedback
+              | valid name.
+            .invalid-feedback
+              | Please enter a name.  
+          .form-group
+            label.text-white.form-control-label(for='emailAddress') Email:
+            input#email.form-control(type='text' name="emailAddress" placeholder='Email' value=emailAddress pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$' required='')
+            include errors
+            .invalid-feedback
+              | Please input a valid email ID
+          hr.mb-4
+          button.btn.btn-primary(type='submit') Sign me up!
+        // /registration Form
+  include bodyscripts
+  script(src='../static/scripts/forcemodal.js')

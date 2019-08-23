@@ -18,7 +18,7 @@ app.use('/static', express.static('public'));
 app.set('view engine', 'pug');
 
 // mongodb connection
-mongoose.connect("mongodb://localhost:27017/tff");
+mongoose.connect("mongodb://localhost:27017/final-frontier");
 var db = mongoose.connection;
 // display message if mongodb connection error
 db.on('error', console.error.bind(console, 'connection error'));
@@ -49,11 +49,13 @@ app.post('/', (req, res, next) => {
 	let promise = User.create(req.body);
   promise.then(() => {
     res.status(201);
-    res.redirect('/');
+    res.location('/');
+		res.redirect('/');
   })
 	.catch((err) => {
     if (err.name == 'ValidationError') {
-			res.render('errormodal', {
+			res.status(401);
+			res.render('index', {
 					fullName: req.body.fullName,
 					emailAddress: req.body.emailAddress,
 					errors: err.errors
@@ -64,8 +66,21 @@ app.post('/', (req, res, next) => {
 
 //post email list modal form from about page
 app.post('/about', (req, res, next) => {
-  User.create(req.body);
-  res.redirect('/about');
+	let promise = User.create(req.body);
+  promise.then(() => {
+    res.status(201);
+    res.redirect('/');
+  })
+	.catch((err) => {
+    if (err.name == 'ValidationError') {
+			res.status(401);
+			res.render('index', {
+					fullName: req.body.fullName,
+					emailAddress: req.body.emailAddress,
+					errors: err.errors
+				})
+			}
+		});
 });
 
 // catch 404 and forward to error handler

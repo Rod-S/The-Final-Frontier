@@ -15,26 +15,113 @@ describe('Mocha', function () {
   });
 });
 
-//When I make a request to the GET /api/users route with the correct credentials, the corresponding user document is returned
+//When I make a request to the GET / route, the index page correctly loads
 describe('routes/index.js', function () {
-  it('should return the authorized user\'s corresponding user document on GET /api/users route', function (done) {
+  it('should return a 200 or 304 response', function (done) {
     chai.request(server)
-      .get('/api/users')
-      .set('authorization', 'Basic am9lQHNtaXRoLmNvbTpwYXNzd29yZA==')
+      .get('/')
       .end(function(err, res) {
-        res.should.have.status(200);
+        res.should.have.status(200 || 304);
         done();
       })
   })
 });
 
-//When I make a request to the GET /api/users route with invalid credentials, a 401 status error is returned
+//When I make a request to the GET /about route, the about page correctly loads
 describe('routes/index.js', function () {
-  it('should return the unauthorized user a 401 status error on GET /api/users route', function (done) {
+  it('should return a 200 or 304 status code', function (done) {
+    chai.request(server)
+      .get('/about')
+      .end(function(err, res) {
+        res.should.have.status(200 || 304);
+        done();
+      })
+  })
+});
+
+
+
+
+
+//When I make a request to the POST / route with server-side validation passed, 200 or 302 status
+describe('routes/index.js', function () {
+  it('should return a 401 status code for server-side validation form submission pass on POST /', function (done) {
   chai.request(server)
-    .get('/api/users')
+    .post('/')
+    .type('form')
+    .send({
+      '_method': 'POST',
+      'fullName': 'RS',
+      'emailAddress': '12345@gmail.com'
+    })
+    .end(function(err, res) {
+      res.should.have.status(200 || 302);
+      done();
+    })
+  })
+});
+
+//When I make a request to the POST / route with server-side validation failed, 401 status
+describe('routes/index.js', function () {
+  it('should return a 401 status code for server-side validation form submission fail on POST /', function (done) {
+  chai.request(server)
+    .post('/')
+    .type('form')
+    .send({
+      '_method': 'POST',
+      'fullName': 'RS',
+      'emailAddress': '12345@gmail.com'
+    })
     .end(function(err, res) {
       res.should.have.status(401);
+      done();
+    })
+  })
+});
+
+//When I make a request to the POST /about route with server-side validation passed, 200 or 302 status
+describe('routes/index.js', function () {
+  it('should return a 200 or 302 status code for server-side validation form submission pass on POST /about', function (done) {
+  chai.request(server)
+    .post('/about')
+    .type('form')
+    .send({
+      '_method': 'POST',
+      'fullName': 'RS',
+      'emailAddress': '1234567890@gmail.com'
+    })
+    .end(function(err, res) {
+      res.should.have.status(200 || 302);
+      done();
+    })
+  })
+});
+
+//When I make a request to the POST /about route with server-side validation failed, 401 status
+describe('routes/index.js', function () {
+  it('should return a 401 status code for server-side validation form submission fail on POST /about', function (done) {
+  chai.request(server)
+    .post('/about')
+    .type('form')
+    .send({
+      '_method': 'POST',
+      'fullName': 'RS',
+      'emailAddress': '1234567890@gmail.com'
+    })
+    .end(function(err, res) {
+      res.should.have.status(401);
+      done();
+    })
+  })
+});
+
+//When I make a request to a nonexistant route, 404 status
+describe('routes/index.js', function () {
+  it('should return a 404 status code for a nonexistent route', function (done) {
+  chai.request(server)
+    .get('/randomroute')
+    .end(function(err, res) {
+      res.should.have.status(404);
       done();
     })
   })

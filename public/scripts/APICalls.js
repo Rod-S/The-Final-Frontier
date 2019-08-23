@@ -2,28 +2,9 @@
 
 $(document).ready(function ($) {
 
-  //disable form submissions if there are invalid fields
-  (function() {
-    'use strict'
-      window.addEventListener('load', function() {
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName('needs-validation');
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
-
   let lat='';
   let long='';
-
+  //astronomy picture of the day request
   $.ajax({
     url: 'https://api.nasa.gov/planetary/apod?api_key=PgRhox3uHogMFEF8zpp5zkWiWWEGP0qlMU90vRrH',
     success: function(result){
@@ -44,7 +25,7 @@ $(document).ready(function ($) {
       $("#apod_title").text(result.title);
     }
   }).then(
-    //open-notify ISS json
+    //open-notify ISS coordinates
     $.ajax({
       url: 'http://api.open-notify.org/iss-now.json',
       success: function(result) {

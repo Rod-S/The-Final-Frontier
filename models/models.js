@@ -24,7 +24,7 @@ const UserSchema = new Schema({
 });
 
 //unique validation message on User emailAddress
-UserSchema.plugin(uniqueValidator, {message: 'is already taken.'});
+UserSchema.plugin(uniqueValidator, {message: 'is already registered.'});
 
 const User = mongoose.model('User', UserSchema);
 
