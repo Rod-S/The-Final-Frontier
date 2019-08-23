@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const jsonParser = require('body-parser').json;
 const createError = require('http-errors');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const User = require('./models/models').User;
 
