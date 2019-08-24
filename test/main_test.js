@@ -39,10 +39,6 @@ describe('routes/index.js', function () {
   })
 });
 
-
-
-
-
 //When I make a request to the POST / route with server-side validation passed, 200 or 302 status
 describe('routes/index.js', function () {
   it('should return a 401 status code for server-side validation form submission pass on POST /', function (done) {
