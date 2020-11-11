@@ -1,5 +1,5 @@
 # The-Final-Frontier
- Creating front-end of JavaScript web app along with back-end managing database communication and 3 APIs. Application hosted with heroku.
+ Creating front-end of JavaScript web app along with back-end managing database communication and 3 APIs. Application hosted on heroku.
 
 -To run app locally:
 
